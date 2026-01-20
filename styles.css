@@ -1,0 +1,272 @@
+* {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 50%, #2d1b69 100%);
+            color: #ffffff;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .poster-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: rgba(10, 14, 39, 0.9);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+        }
+        
+        .poster-header {
+            text-align: center;
+            margin-bottom: 40px;
+            background: linear-gradient(45deg, #00d4ff, #9b59b6, #3498db);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .poster-header h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            text-shadow: 0 0 20px rgba(0, 212, 255, 0.5);
+        }
+        
+        .poster-header p {
+            font-size: 1.2em;
+            color: #b8c5d6;
+        }
+        
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            margin-top: 30px;
+        }
+        
+        .section {
+            background: rgba(255, 255, 255, 0.05);
+            border: 2px solid rgba(0, 212, 255, 0.3);
+            border-radius: 15px;
+            padding: 25px;
+            backdrop-filter: blur(10px);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 212, 255, 0.3);
+        }
+        
+        .section h2 {
+            color: #00d4ff;
+            font-size: 1.5em;
+            margin-bottom: 15px;
+            border-bottom: 2px solid rgba(155, 89, 182, 0.5);
+            padding-bottom: 10px;
+        }
+        
+        .formula {
+            background: rgba(0, 212, 255, 0.1);
+            border-left: 4px solid #00d4ff;
+            padding: 10px 15px;
+            margin: 15px 0;
+            font-family: 'Courier New', monospace;
+            font-size: 1.1em;
+            color: #00ff88;
+            border-radius: 5px;
+        }
+        
+        .diagram {
+            width: 100%;
+            height: 200px;
+            margin: 20px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .explanation {
+            color: #b8c5d6;
+            line-height: 1.6;
+            font-size: 0.95em;
+        }
+        
+        /* Bloch Sphere Styles */
+        .bloch-sphere {
+            width: 180px;
+            height: 180px;
+            position: relative;
+            transform-style: preserve-3d;
+            animation: rotate 10s infinite linear;
+        }
+        
+        @keyframes rotate {
+            from { transform: rotateY(0deg) rotateX(10deg); }
+            to { transform: rotateY(360deg) rotateX(10deg); }
+        }
+        
+        .sphere {
+            width: 100%;
+            height: 100%;
+            border: 3px solid #00d4ff;
+            border-radius: 50%;
+            position: absolute;
+            background: radial-gradient(circle at 30% 30%, rgba(0, 212, 255, 0.3), transparent 70%);
+        }
+        
+        .axis {
+            position: absolute;
+            background: #ffffff;
+            transform-origin: center;
+        }
+        
+        .axis-x {
+            width: 100%;
+            height: 2px;
+            top: 50%;
+            left: 0;
+        }
+        
+        .axis-y {
+            width: 2px;
+            height: 100%;
+            left: 50%;
+            top: 0;
+        }
+        
+        .axis-z {
+            width: 100%;
+            height: 2px;
+            top: 50%;
+            left: 0;
+            transform: rotateZ(90deg) rotateY(90deg);
+        }
+        
+        /* Quantum Gate Visualization */
+        .gate-container {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            width: 100%;
+        }
+        
+        .gate {
+            background: linear-gradient(45deg, #9b59b6, #3498db);
+            padding: 10px 15px;
+            border-radius: 8px;
+            font-weight: bold;
+            box-shadow: 0 4px 15px rgba(155, 89, 182, 0.4);
+            transition: transform 0.3s ease;
+        }
+        
+        .gate:hover {
+            transform: scale(1.1);
+        }
+        
+        /* Comparison Table */
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+        
+        .comparison-table th,
+        .comparison-table td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid rgba(0, 212, 255, 0.3);
+        }
+        
+        .comparison-table th {
+            background: rgba(0, 212, 255, 0.2);
+            color: #00d4ff;
+            font-weight: bold;
+        }
+        
+        .comparison-table td {
+            color: #b8c5d6;
+        }
+        
+        /* Probability Waves */
+        .waves {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .wave {
+            position: absolute;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #00ff88, transparent);
+            animation: wave 2s infinite ease-in-out;
+        }
+        
+        @keyframes wave {
+            0%, 100% { transform: translateX(-100%); }
+            50% { transform: translateX(100%); }
+        }
+        
+        .wave:nth-child(2) { top: 30%; animation-delay: 0.5s; }
+        .wave:nth-child(3) { top: 50%; animation-delay: 1s; }
+        .wave:nth-child(4) { top: 70%; animation-delay: 1.5s; }
+        
+        /* Entanglement Visualization */
+        .entanglement {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+        
+        .qubit {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: radial-gradient(circle, #00d4ff, #9b59b6);
+            box-shadow: 0 0 20px rgba(0, 212, 255, 0.6);
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+        
+        .connection {
+            position: absolute;
+            width: 100px;
+            height: 2px;
+            background: linear-gradient(90deg, #00ff88, #00d4ff, #00ff88);
+            animation: flow 3s infinite linear;
+        }
+        
+        @keyframes flow {
+            0% { background-position: 0 0; }
+            100% { background-position: 100px 0; }
+        }
+        
+        @media (max-width: 768px) {
+            .grid-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .poster-header h1 {
+                font-size: 2em;
+            }
+            
+            .poster-container {
+                padding: 20px;
+            }
+        }
